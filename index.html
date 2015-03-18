@@ -17,6 +17,14 @@
       </div>
     </div>
     <script>
+      $(function(){
+        $('#msgBox').keyup(function(event){
+          if(event.which == 13) {
+            yoba();
+            $('#msgBox').val('');
+          }
+        });
+      });
       //ws = new WebSocket("ws://localhost:8001");
       ws = new WebSocket("ws://162.208.11.89:8001");
       ws.onopen = function() {  };

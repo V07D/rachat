@@ -10,7 +10,7 @@ var server = ws.createServer(function(conn) {
     console.log("New connection")
     conn.on("text", function(str) {
         console.log("Received "+str);
-        broadcast(server,new Date().toISOString() + ", Anonymous: "+str.replace(/</g,'&#60;').replace(/>/g,'&#62;'));
+        broadcast(server,new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') + ", Anonymous: "+str.replace(/</g,'&#60;').replace(/>/g,'&#62;'));
     })
     conn.on("close", function(code, reason) {
         console.log("Connection closed")

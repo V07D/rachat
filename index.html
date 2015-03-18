@@ -24,9 +24,7 @@
       ws.onmessage = function(evt) { $("#msg").append("<p>"+evt.data+"</p>"); };
 
       function yoba() {
-        var msg = $("#msgBox").val();
-        if(msg.length > 1024) alert('Сообщение слишком большое!');
-        else ws.send($("#msgBox").val());
+        ws.send($("#msgBox").val());
       }
     </script>
   </body>

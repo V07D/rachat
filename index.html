@@ -13,31 +13,9 @@
           </div>
         </div>
         <textarea id="msgBox" class="form-control" rows="3"></textarea>
-        <button class="btn" id="btnSend" onClick="yoba();">YOBA!</button>
+        <button class="btn" id="btnSend">YOBA!</button>
       </div>
     </div>
-    <script>
-      $(function(){
-        $('#msgBox').keyup(function(event){
-          if(event.which == 13) {
-            yoba();
-          }
-        });
-      });
-      //ws = new WebSocket("ws://localhost:8001");
-      ws = new WebSocket("ws://162.208.11.89:8001");
-      ws.onopen = function() {  };
-      ws.onclose = function() { alert("Connection closed...") };
-      ws.onmessage = function(evt) { 
-        $("#msg").append("<p>"+evt.data+"</p>");
-        var box = $('#msg');
-        box.scrollTop(box[0].scrollHeight);
-      };
-
-      function yoba() {
-        ws.send($("#msgBox").val());
-        $('#msgBox').val('');
-      }
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
